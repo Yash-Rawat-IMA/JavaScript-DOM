@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Node List</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+
+
+    
+</body>
+
+<script>
+    const div = document.createElement('div')
+    console.log(div)
+    // console.log(typeof div) //object
+
+    div.className = "main"
+    // Random ID generator
+    div.id = Math.round((Math.random() *10) % 10 + 1)
+    console.log(div.id)
+
+    div.setAttribute("title", "settledAttribute")
+    div.style.backgroundColor = "green"
+    div.style.padding = "12px"
+    div.style.margin = "12px"
+    div.style.borderRadius = "15px"
+    div.innerText = "Hi I am DIV created by JS but I do overwrite, first I take the value from div of innerText and then overwrites it to what I am writing here";
+    const lineBreak = document.createElement("br")
+    const addText = document.createTextNode(" createTextNode:Adding a text node without overwriting")
+
+    div.appendChild(lineBreak)
+    div.appendChild(addText)
+    document.body.appendChild(div)
+    div.innerText = "Over writes the div"
+    div.appendChild(addText)
+    
+</script>
+
+</html>
