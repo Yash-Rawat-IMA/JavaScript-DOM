@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit | Remove | Elements</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    function addLang(langName){
+        const li=document.createElement('li')
+        const liText=document.createTextNode(langName)
+        li.appendChild(liText)
+        //or
+        // Unoptimized as it also traverse the whole tree
+        //li.innerText = `${langName}` 
+
+        // one way: but here querySelector goes through the whole tree structure making it a bit slow for large databases
+        // const ul=document.querySelector('.language')
+        // ul.appendChild(li)
+        
+        //Optimized
+        const ul = document.getElementsByClassName('language');
+        ul[ul.length-1].appendChild(li)
+        
+       
+    }
+    addLang("Python")
+    addLang("C++")
+    addLang("Java")
+    addLang("Ruby")
+
+    function editLiLang(langName, n)
+    {
+        if(n<=0)
+        {
+            console.log("Invalid Index")
+            return;
+        }
+        const ul = document.querySelector('.language')
+        const li = document.createElement('li')
+        li.textContent = langName
+        if(n== ul.children.length+1)
+        {
+            console.log(li)
+            ul.appendChild(li);
+            // addLang(langName)
+        }
+        if(ul && ul.children.length >= n)
+        {
+            console.log(li)
+            ul.children[n-1].replaceWith(li)
+            // ul.children[n-1].innerHTML = (`${langName}`)
+        }
+        else{
+            console.log("Invalid Index or labguage not found")
+        }
+    }
+    editLiLang("Swift", 2)
+
+    // edit first child
+    const firstLiLang = document.querySelector("li:first-child");
+    // firstLiLang.outerHTML = '<li>JS with ReactJS</li>'
+    // or
+    const li = document.createElement('li')
+    li.innerHTML="ReactJS"
+    firstLiLang.replaceWith(li)
+    console.log(firstLiLang)
+    //edit nth child
+    const nLang = document.querySelector('li:nth-child(3)')
+    // nLang.innerHTML= "C++ : Fastest Language"
+    // or
+    nLang.outerHTML= "<li>C++ : Fastest Language</li>"
+
+    // remove
+    const lastLang = document.querySelector('li:last-child')
+    // lastLang.remove();
+
+</script>
+</html>
