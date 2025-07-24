@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM Learnings</title>
+
+
+    <style>
+        .domDiag{
+            background-color: #1a1a1a;
+        }
+
+        #first-divs{
+            background-color: rgb(47, 45, 45);
+        }
+
+    </style>
+</head>
+<body style="background-color: #212121; color: aliceblue;">
+    <div class="domDiag">
+    <h1 id="title" class="headings">Lorem ipsum dolor <span style="display: none;">Lorem, ipsum dolor.</span>sit amet.</h1>
+    <h2>Lorem, ipsum dolor.</h2>
+    <h2>Lorem, ipsum dolor.</h2>
+    <h2>Lorem, ipsum dolor.</h2>
+    <h2>Lorem, ipsum dolor.</h2>
+    <h2>Lorem, ipsum dolor.</h2>
+    <p id="para" class="first-div">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia atque dolores nemo error. Repellat nam omnis aliquam dolorem nemo sit!</p>
+    <ul>
+        <li class="list-item">one</li>
+        <li class="list-item">two</li>
+        <li class="list-item">three</li>
+        <li class="list-item">four</li>
+        <li class="list-item">five</li>
+    </ul>
+    <input type="password" name="pass">
+    </div>
+</body>
+<script>
+    console.log(document.getElementById("title")); //this gives us the only element having only this id and id is unique which means one element can only have one id, one id could be owned by many elements
+    console.log(document.getElementById('title').innerHTML) //also shows the html written 
+    console.log(document.getElementById('title').innerText) //only gives us the text to be shown or visible text on the browser
+    console.log(document.getElementById('title').textContent) //also gives us the text that may be hidden by diplay: none property or any reason 
+
+    console.log(document.getElementsByClassName("headings")); //this gives us the HTMLCollection of the nodes or elements having this class
+    console.log(document.getElementById('title').className); //other attributes could also be easily accessed through this
+    console.log(document.getElementById('title').getAttribute('class')); //we can get the attributes by this function also
+    console.log(document.getElementById("title").getAttribute("id"));
+    console.log(document.getElementById('title').getAttributeNames()); //gives array of all the attributes
+
+    
+    const classOfH1 = document.getElementById('title').getAttribute('class');
+    document.getElementById('title').setAttribute('class', 'test');  // sets the attribute and it always overwrites the actual attribute
+    
+    // to overcome overwrite store the previous class (may use it directly also if you remember the name) and set both(new as well as previous too) 
+    document.getElementById('title').setAttribute('class', `test ${classOfH1}`);
+
+    const title = document.getElementById('title')
+    title.style.backgroundColor = 'green' 
+    //style of css can also be updated using JS
+    title.style.padding = '10px';
+    title.style.borderRadius = '20px';
+
+    // querySelector : works for css selector
+    console.log(document.querySelector('h2'))
+
+    console.log(document.querySelectorAll('h2')) //returns the NodeList(n) of all h2s where "n" is the number of h2
+
+    const h = document.querySelectorAll('h2')
+    console.log('typeof of all h2 list: ', typeof h) //in JS typeof is shown as object instead of NodeList or any other thing specified
+    
+    // now to check if it's actually a NodeList we can do these things:
+    console.log(h instanceof NodeList); // true
+    console.log(h.constructor.name);    // 'NodeList'
+    console.log(Object.prototype.toString.call(h)); // [object NodeList]
+
+
+    console.log(document.querySelector('#title'))
+    console.log(document.querySelector('.first-div'))
+    console.log(document.querySelector('input[type="password"]'))
+
+    document.querySelector('ul').style.backgroundColor = 'grey'
+
+    const myList = document.querySelector('ul')
+    const myTempList =  myList.querySelectorAll('li');
+    console.log(typeof myTempList) //object
+    console.log(typeof myList)  //object
+    //as eveything in JS is mainly considered as objects but actually myTempList is a NodeList
+    myTempList[0].style.color = "#1c95ff"
+
+    myTempList.forEach((item) => {
+        item.style.backgroundColor = "brown"
+        item.style.padding = "10px"
+        item.style.margin = "10px"
+        item.style.borderRadius = "20px"
+        item.style.display = "flex"
+        item.style.alignItems = "center"
+        item.style.justifyContent = "center"
+    })
+
+    const listClass = document.getElementsByClassName('list-item');
+    console.log(listClass)
+    const listArray = Array.from(listClass);
+    console.log(listArray)
+    
+    listArray.forEach( (li) => {
+        li.style.textDecoration = "underline"
+    })
+
+    
+</script>
+</html>
