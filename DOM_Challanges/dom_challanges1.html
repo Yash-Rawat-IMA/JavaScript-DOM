@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Challanges</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: #fff;
+            text-align: center;
+        }
+
+ul{
+    color: aqua;
+}
+
+        .highlight{
+            background-color: yellow;
+            color: black;
+            font-weight: bold;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript DOM Fun Examples</h1>
+
+    <!-- Exp-1: Accessing the element -->
+     <section id="exp-1">
+     <h2>Accessing DOM Elements</h2>
+     <p id="myPara">This is a Paragraph. Click on the button to chenge me!</p>
+     <button id="changeTextButton">Change Text</button>
+     </section>
+
+<!-- Exp-2: Traversing the DOM -->
+ <section id="exp-2">
+    <h2>Traversing the DOM</h2>
+    <ul id="cityList">
+        <li>Agra</li>
+        <li>Bharatpur</li>
+        <li>Dehradun</li>
+        <li>Delhi</li>
+        <li>Srinagar</li>
+    </ul>
+    <button id="highlightCity">Highlight First City</button>
+ </section>
+
+<!-- Exp-3: Manipulating DOM Elements -->
+ <section id="exp-3">
+    <h2>Manipulating DOM Elements</h2>
+    <div id="coffeeOrder">
+        Order: <span id="coffeeType">Latte</span>
+    </div>
+    <button id="changeOrder">Change Order to Espresso</button>
+ </section>
+
+<!-- Exp-4: Creating and Inserting Elements -->
+ <section id="exp-4">
+<h2>Creating and Inserting Elements</h2>
+<button id="addNewItem">Add a New Item to the Shopping List</button>
+<ul id="shoppingList">
+<li>Bread</li>
+<li>Milk</li>
+</ul>
+ </section>
+
+
+ <!-- Exp-5: Removing DOM Elements -->
+  <section id="exp-5">
+    <h2>Removing DOM Elements</h2>
+    <ul id="taskList">
+        <li>Task 1</li>
+        <li>Task 2</li>
+        <li>Task 3</li>
+    </ul>
+    <button id="removeTask">Remove Task</button>
+  </section>
+
+<!-- Exp-6: Event Handling in the DOM -->
+ <section id="exp-6">
+ <h2>Event Handling in the DOM</h2>
+
+ <button id="clickMe">Click Me!</button>
+</section>
+
+<!-- Exp-7: Event Delegation -->
+ <section id="exp-7">
+    <h2>Event Delegation</h2>
+    <ul id="teaList">
+        <li class="teaItem">Green Tea</li>
+        <li class="teaItem">Black Tea</li>
+        <li class="teaItem">Oolong Tea</li>
+    </ul>
+    <p>Click on any Tea to Select it!</p>
+ </section>
+
+ <!-- Exp-8: Form Handling -->
+<section id="exp-8">
+    <h2>Form Handling</h2>
+    <form action="" id="feedbackForm">
+        <label for="feedbackInput">Your Feedback: </label>
+        <input type="text" name="" id="feedbackInput" placeholder="Enter Feedback">
+        <br>
+        <button type="submit">Submit Feedback</button>
+    </form>
+    <p id="feedbackDisplay"></p>
+</section>
+
+<!-- Exp-9: DOM Content Loaded -->
+ <section id="exp-9">
+    <h2>DOM Content Loaded</h2>
+    <p id="domStatus">Waiting for DOM to LOAD.....</p>
+ </section>
+
+ <!-- Exp-10: CSS Class Manipulations-->
+  <section id="exp-10">
+    <h2>CSS Class Manipulations</h2>
+    <p id="descText">This Text will change color</p>
+    <button id="toggleHighlight">Toggle Highlight</button>
+  </section>
+</body>
+<script src="dom_Challenges.js"></script>
+</html>
